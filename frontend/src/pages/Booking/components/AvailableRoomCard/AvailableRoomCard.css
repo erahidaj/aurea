@@ -1,0 +1,219 @@
+.availability-room-card {
+  display: grid;
+  grid-template-columns: 190px minmax(0, 1fr);
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-xs);
+  transition: var(--transition);
+}
+
+.availability-room-card:hover {
+  border-color: rgba(195, 154, 114, 0.28);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-2px);
+}
+
+.availability-room-card.selected {
+  border-color: var(--gold);
+  box-shadow:
+    0 0 0 3px rgba(195, 154, 114, 0.11),
+    var(--shadow-sm);
+}
+
+.availability-room-image-wrap {
+  position: relative;
+  min-height: 220px;
+  overflow: hidden;
+  background: var(--surface-2);
+}
+
+.availability-room-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition);
+}
+
+.availability-room-card:hover .availability-room-image {
+  transform: scale(1.03);
+}
+
+.availability-selected-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 9px;
+  border-radius: 999px;
+  background: var(--primary);
+  color: var(--white);
+  font-size: 0.61rem;
+  font-weight: 700;
+}
+
+.availability-selected-badge i {
+  color: var(--gold-light);
+}
+
+.availability-room-content {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.availability-room-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.availability-room-heading h3 {
+  margin: 0 0 9px;
+  color: var(--primary);
+  font-size: 1rem;
+}
+
+.availability-room-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.availability-room-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--muted);
+  font-size: 0.65rem;
+  font-weight: 600;
+}
+
+.availability-room-meta i {
+  color: var(--gold-dark);
+}
+
+.availability-room-price {
+  flex-shrink: 0;
+  text-align: right;
+}
+
+.availability-room-price strong,
+.availability-room-price span {
+  display: block;
+}
+
+.availability-room-price strong {
+  color: var(--gold-dark);
+  font-size: 1rem;
+}
+
+.availability-room-price span {
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 0.61rem;
+}
+
+.availability-room-description {
+  display: -webkit-box;
+  margin: 17px 0;
+  overflow: hidden;
+  color: var(--secondary);
+  font-size: 0.72rem;
+  line-height: 1.65;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.availability-room-footer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 15px;
+  margin-top: auto;
+  padding-top: 15px;
+  border-top: 1px solid var(--border);
+}
+
+.availability-total {
+  color: var(--secondary);
+  font-size: 0.7rem;
+}
+
+.availability-total strong {
+  color: var(--primary);
+}
+
+.availability-room-left {
+  display: block;
+  margin-top: 4px;
+  color: #23875b;
+  font-size: 0.61rem;
+  font-weight: 700;
+}
+
+.availability-select-button {
+  min-height: 39px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 0 14px;
+  border: 0;
+  border-radius: 9px;
+  background: var(--primary);
+  color: var(--white);
+  font-size: 0.68rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.availability-select-button:hover {
+  background: var(--gold-dark);
+  transform: translateY(-1px);
+}
+
+.availability-room-card.selected .availability-select-button {
+  background: var(--gold-dark);
+}
+
+@media (max-width: 767px) {
+  .availability-room-card {
+    grid-template-columns: 1fr;
+  }
+
+  .availability-room-image-wrap {
+    min-height: 210px;
+  }
+
+  .availability-room-image {
+    position: absolute;
+    inset: 0;
+  }
+}
+
+@media (max-width: 520px) {
+  .availability-room-content {
+    padding: 17px;
+  }
+
+  .availability-room-heading,
+  .availability-room-footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .availability-room-price {
+    text-align: left;
+  }
+
+  .availability-select-button {
+    width: 100%;
+  }
+}

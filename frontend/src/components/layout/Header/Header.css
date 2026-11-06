@@ -1,0 +1,512 @@
+/* =========================================================
+   HEADER
+========================================================= */
+
+.site-header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 1030;
+  width: 100%;
+  background: var(--header-bg);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--header-border);
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.12);
+}
+
+.site-header.sticky-top {
+  top: 0;
+}
+
+.site-header .navbar {
+  min-height: 64px;
+  padding: 0.25rem 0;
+}
+
+.site-header .navbar > .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* =========================================================
+   DESKTOP / HEADER LOGO
+   Logo controlled by height for consistent proportions.
+========================================================= */
+
+.logo-wrapper,
+.navbar-brand {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+  flex-shrink: 0;
+}
+
+.logo-wrapper {
+  min-width: 140px;
+}
+
+.logo-icon {
+  display: block;
+  width: auto;
+  height: 55px;
+  max-width: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 6px rgba(201, 169, 110, 0.14));
+  transition:
+    transform 0.3s ease,
+    filter 0.3s ease,
+    opacity 0.3s ease;
+}
+
+/* =========================================================
+   DESKTOP NAVIGATION
+========================================================= */
+
+.desktop-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.desktop-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.35rem;
+}
+
+.desktop-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.nav-link {
+  position: relative;
+  padding: 0.3rem 0 !important;
+  font-size: 0.94rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--white) !important;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--gold-dark) !important;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 1px;
+  width: 0;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--gold);
+  transition: var(--transition);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* =========================================================
+   HEADER CTA
+========================================================= */
+
+.header-cta {
+  min-width: 136px;
+  min-height: 44px;
+  padding: 0.72rem 1.1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-pill);
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+/* =========================================================
+   MOBILE TOGGLER
+========================================================= */
+
+.navbar-toggler {
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+.custom-toggler-icon {
+  position: relative;
+  display: inline-block;
+  width: 22px;
+  height: 2.4px;
+  border-radius: 999px;
+  background: var(--white);
+}
+
+.custom-toggler-icon::before,
+.custom-toggler-icon::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 22px;
+  height: 2.4px;
+  border-radius: 999px;
+  background: var(--white);
+  transition: var(--transition);
+}
+
+.custom-toggler-icon::before {
+  top: -7px;
+}
+
+.custom-toggler-icon::after {
+  top: 7px;
+}
+
+/* =========================================================
+   MOBILE OFFCANVAS
+========================================================= */
+
+.mobile-offcanvas {
+  width: min(88vw, 340px) !important;
+  max-width: 340px;
+  background: var(--surface) !important;
+  border-left: 1px solid var(--border);
+  z-index: 2000 !important;
+  box-shadow: -20px 0 60px rgba(15, 23, 42, 0.12);
+  overflow-x: hidden;
+}
+
+.mobile-offcanvas .offcanvas-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 78px;
+  padding: 0.75rem 0.95rem;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+
+.mobile-offcanvas .offcanvas-body {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 78px);
+  padding: 1rem;
+  background: var(--surface);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* =========================================================
+   OFFCANVAS LOGO
+   Separate from header logo because the white panel needs
+   a slightly larger, balanced brand mark.
+========================================================= */
+
+.mobile-brand {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 1 auto;
+  min-width: 0;
+  max-width: calc(100% - 48px);
+  line-height: 0;
+}
+
+.mobile-logo-icon {
+  display: block;
+  width: auto;
+  height: 64px;
+  max-width: 170px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 8px rgba(201, 169, 110, 0.16));
+}
+
+/* =========================================================
+   MOBILE NAV LINKS
+========================================================= */
+
+.mobile-nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.mobile-nav-link {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 50px;
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.94rem;
+  font-weight: 700;
+  color: var(--primary) !important;
+  background: transparent;
+  border: 1px solid transparent;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.mobile-nav-link:hover,
+.mobile-nav-link.active {
+  color: var(--gold-dark) !important;
+  background: rgba(201, 169, 110, 0.08);
+  border-color: rgba(201, 169, 110, 0.16);
+}
+
+.mobile-nav-link::after {
+  content: none;
+}
+
+/* =========================================================
+   MOBILE ACTIONS
+========================================================= */
+
+.mobile-language-wrapper {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.mobile-bottom-box {
+  width: 100%;
+  margin-top: auto;
+  padding-top: 1.15rem;
+}
+
+.mobile-bottom-box .btn {
+  width: 100%;
+}
+
+/* =========================================================
+   BOOTSTRAP CLEANUP / SAFETY
+========================================================= */
+
+.btn-close {
+  padding: 0.25rem;
+}
+
+.btn-close:focus {
+  box-shadow: none;
+}
+
+.offcanvas:not(.show) {
+  pointer-events: none;
+}
+
+.offcanvas.show {
+  pointer-events: auto;
+}
+.offcanvas-backdrop.show {
+  opacity: 0.42;
+}
+
+.offcanvas-backdrop:not(.show) {
+  opacity: 0;
+  pointer-events: none;
+}
+
+body:not(.offcanvas-open) {
+  overflow-y: auto !important;
+  overflow-x: hidden;
+}
+
+/* =========================================================
+   LARGE DESKTOP
+========================================================= */
+
+@media (min-width: 1400px) {
+  .site-header .navbar {
+    min-height: 86px;
+  }
+
+  .logo-icon {
+    height: 62px;
+  }
+
+  .desktop-nav {
+    gap: 1.8rem;
+  }
+
+  .desktop-nav-links {
+    gap: 1.5rem;
+  }
+}
+
+/* =========================================================
+   LAPTOP
+========================================================= */
+
+@media (max-width: 1199.98px) {
+  .logo-icon {
+    height: 54px;
+  }
+
+  .desktop-nav {
+    gap: 1.1rem;
+  }
+
+  .desktop-nav-links {
+    gap: 0.95rem;
+  }
+
+  .nav-link {
+    font-size: 0.91rem;
+  }
+
+  .header-cta {
+    min-width: 128px;
+    padding: 0.7rem 1rem;
+  }
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 991.98px) {
+  .site-header {
+    background: rgba(12, 12, 16, 0.78);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .site-header .navbar,
+  .navbar {
+    min-height: 74px;
+    padding-top: 0.55rem;
+    padding-bottom: 0.55rem;
+  }
+
+  .logo-wrapper {
+    max-width: calc(100% - 56px);
+  }
+
+  .logo-icon {
+    height: 50px;
+  }
+
+  .mobile-logo-icon {
+    height: 56px;
+    max-width: 152px;
+  }
+  .offcanvas-backdrop.show {
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 767.98px) {
+  .site-header .navbar,
+  .navbar {
+    min-height: 70px;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .logo-icon {
+    height: 68px;
+  }
+
+  .mobile-offcanvas {
+    width: min(82vw, 310px) !important;
+    max-width: 310px;
+  }
+
+  .mobile-offcanvas .offcanvas-header {
+    min-height: 74px;
+    padding-left: 0.9rem;
+    padding-right: 0.9rem;
+  }
+
+  .mobile-offcanvas .offcanvas-body {
+    height: calc(100vh - 74px);
+    padding-left: 0.9rem;
+    padding-right: 0.9rem;
+  }
+
+  .mobile-logo-icon {
+    height: 60px;
+    max-width: 165px;
+  }
+
+  .mobile-nav-link {
+    min-height: 48px;
+    font-size: 0.93rem;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+  .logo-icon {
+    height: 42px;
+  }
+
+  .mobile-offcanvas {
+    width: min(80vw, 295px) !important;
+    max-width: 295px;
+  }
+
+  .mobile-logo-icon {
+    height: 50px;
+    max-width: 138px;
+  }
+
+  .header-cta {
+    min-width: 100%;
+    min-height: 44px;
+    padding: 0.72rem 1rem;
+  }
+}
+
+/* =========================================================
+   EXTRA SMALL
+========================================================= */
+
+@media (max-width: 360px) {
+  .logo-icon {
+    height: 40px;
+  }
+
+  .mobile-logo-icon {
+    height: 56px;
+    max-width: 155px;
+  }
+
+  .mobile-nav-link {
+    padding: 0.8rem 0.9rem;
+  }
+}
+/* Five-star visual refinement */
+.site-header { backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); box-shadow: 0 10px 40px rgba(0,0,0,.14); }
+.site-header .navbar { min-height: 82px; padding: .5rem 0; }
+.desktop-nav-links { gap: 1.65rem; }
+.nav-link { font-size: .76rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+.nav-link::after { height: 1px; }
+.header-cta { border-radius: 2px; font-size: .76rem; letter-spacing: .07em; text-transform: uppercase; }

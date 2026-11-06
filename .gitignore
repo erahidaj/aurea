@@ -1,0 +1,28 @@
+# Dependencies and builds
+node_modules/
+vendor/
+dist/
+coverage/
+# Local configuration: never commit credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+# Runtime and private data
+*.log
+*.sqlite
+*.sqlite3
+*.sql.gz
+backups/
+dumps/
+sessions/
+# Editors and operating systems
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+# Archives are deliverables, not source
+*.zip
